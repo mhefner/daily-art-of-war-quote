@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cpap-analyzer
+  name: daily-art-of-war-quote
 spec:
   template:
     spec:
       containers:
-        - name: analyzer
-          image: mhefner1983/cpap-analyzer:dev  # tag it differently for dev
+        - name: daily-art-of-war-quote
+          image: mhefner1983/daily-art-of-war-quote:dev  # tag it differently for dev
           imagePullPolicy: Always
