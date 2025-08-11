@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Tzu's Wisdom</title>
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a Chinese aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #0c0a09; /* Stone-like dark background */
+            background-image: url('https://placehold.co/1920x1080/262626/cccccc?text=Ancient+Chinese+Landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            font-family: 'Zhi Mang Xing', cursive;
+        }
+        .text-glow {
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 bg-gray-900 text-white">
+
+    <!-- Main Container -->
+    <div class="bg-gray-800 bg-opacity-80 backdrop-blur-md p-8 rounded-xl shadow-2xl w-full max-w-3xl text-center border-2 border-amber-500 transform transition-transform duration-500 hover:scale-[1.01]">
+        
+        <!-- Dragon SVG for flair -->
+        <div class="mb-4">
+            <svg class="h-12 w-auto mx-auto text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                <path d="M511.2 163.6c-4.9-19-15.6-35.8-30.8-49.8L350.2 1.2c-2.3-2.3-5.3-3.7-8.5-4.4C338.4-1.2 332.3-.3 327.4 3.6L246.7 68c-20.9 16.5-49.1 16.5-70 0L95.7 3.6c-4.9-3.9-11-4.8-17.3-3.6-3.2 .7-6.2 2.1-8.5 4.4L1.7 113.8c-15.2 14-26 30.8-30.8 49.8C-4.4 200.7 2.3 226.7 19.3 247.9l121.2 146.9c12.2 14.8 19.1 33 19.1 52.1V512h171V447.1c0-19.1 6.9-37.3 19.1-52.1L492.7 247.9c17-21.2 23.7-47.2 18.5-84.3zM256 319.4c-12.7 0-25-3.8-35.6-11.2L85.2 191.1c-9.1-6.1-15.2-16.1-15.2-27.1V128h338v36.1c0 11-6.1 21-15.2 27.1L291.6 308.2c-10.6 7.4-22.9 11.2-35.6 11.2z"/>
+            </svg>
+        </div>
+
+        <h1 class="text-6xl font-bold text-amber-500 mb-6 text-glow">
+            Sun Tzu's Wisdom
+        </h1>
+        
+        <!-- Quote Display Card -->
+        <div class="p-8 bg-gray-900 bg-opacity-70 rounded-lg shadow-inner border border-gray-700 mb-8 transform transition-transform duration-500 ease-in-out hover:scale-[1.02]">
+            <p id="quote-text" class="text-2xl italic text-gray-200">
+                
+            </p>
+        </div>
+
+        <!-- Button to generate a new quote -->
+        <button id="new-quote-btn" class="bg-amber-600 hover:bg-amber-700 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 active:scale-95 border-2 border-amber-400">
+            Meditate on a New Quote
+        </button>
+    </div>
+
+    <script>
+        // Array of quotes from the user's n8n workflow
+        const quotes = [
+            "The supreme art of war is to subdue the enemy without fighting.",
+            "All warfare is based on deception.",
+            "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+            "The greatest victory is that which requires no battle.",
+            "In the midst of chaos, there is also opportunity.",
+            "Victor is he who can make the most of every situation.",
+            "Appear weak when you are strong, and strong when you are weak.",
+            "To win one hundred victories in one hundred battles is not the highest skill. To subdue the enemy without fighting is the highest skill.",
+            "The general who wins the battle makes many calculations in his temple before the battle is fought.",
+            "Move not unless you see an advantage; use not your troops unless there is something to be gained; fight not unless the position is critical."
+        ];
+
+        // Function to get a random quote and display it with a simple fade effect
+        function displayRandomQuote() {
+            const quoteTextElement = document.getElementById('quote-text');
+            const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            // Apply a fade-out effect
+            quoteTextElement.style.opacity = 0;
+            setTimeout(() => {
+                quoteTextElement.textContent = `"${newQuote}"`;
+                // Apply a fade-in effect
+                quoteTextElement.style.opacity = 1;
+            }, 300); // Wait for the fade-out transition to complete
+        }
+
+        // Get the button element
+        const newQuoteBtn = document.getElementById('new-quote-btn');
+
+        // Add a click event listener to the button
+        newQuoteBtn.addEventListener('click', displayRandomQuote);
+
+        // Display a quote on page load
+        displayRandomQuote();
+    </script>
+</body>
+</html>
+
