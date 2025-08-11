@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cpap-analyzer
+  name: daily-art-of-war-quote
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/mhefner/cpap-analyzer
+    repoURL: https://github.com/mhefner/daily-art-of-war-quote
     targetRevision: HEAD
     path: overlay/dev
   destination:

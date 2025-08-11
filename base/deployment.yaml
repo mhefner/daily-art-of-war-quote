@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cpap-analyzer
+  name: daily-art-of-war-quote
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cpap-analyzer
+      app: daily-art-of-war-quote
   template:
     metadata:
       labels:
-        app: cpap-analyzer
+        app: daily-art-of-war-quote
     spec:
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
       - name: analyzer
-        image: mhefner1983/cpap-analyzer:dev
+        image: mhefner1983/daily-art-of-war-quote:dev
         ports:
         - containerPort: 80
