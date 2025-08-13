@@ -15,7 +15,7 @@ spec:
       imagePullSecrets:
         - name: dockerhub-secret
       containers:
-      - name: analyzer
+      - name: daily-art-of-war-quote
         image: mhefner1983/daily-art-of-war-quote:dev
         ports:
         - containerPort: 80
